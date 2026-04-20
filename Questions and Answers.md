@@ -16,6 +16,7 @@ Answer: A consistent response structure matters because the JavaScript code expe
 Question 3: In displayNames.php, the code checks if $records === "error" and also checks count($records) > 0. Explain the difference between these two conditions and why both checks are necessary before processing the database results.
 
 Answer: The condition $records === "error" checks whether the database operation itself failed. That is different from count($records) > 0, which checks whether the query succeeded and returned one or more rows. Both checks are needed because a query can fail entirely, or it can succeed but return no matching records. An error means something went wrong with the SQL or connection. An empty result means the SQL worked, but there was simply no data to display yet. 
+
 Question 4: When a user clicks the "Add Name" button, main.js calls names.addName(), which then calls names.displayNames(). Explain why displayNames() is called after adding a name, and describe the sequence of AJAX requests that occur during this process.
 
 Answer: displayNames() is called after adding a name so the page can immediately show the updated list without requiring a manual refresh. The sequence is: the user clicks Add Name, main.js sends an AJAX request to addName.php, PHP inserts the new name into the database, and then JavaScript calls displayNames() to send another AJAX request to displayNames.php. That second request gets the full updated list from the database and displays it in sorted order under the form. 
