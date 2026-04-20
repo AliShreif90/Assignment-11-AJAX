@@ -2,6 +2,7 @@ Question 1: In main.js, the addName function uses fetch() to send data to
 addName.php. Explain the request/response flow: what data format is sent from 
 JavaScript, how does PHP receive it, and what format must PHP return for 
 JavaScript to process it?
+
 Answer: In main.js, fetch() sends the name from JavaScript to addName.php as 
 request data. In this case, the request included a field like name: "Amy Adams".
 On the PHP side, that data can be read from the request body, commonly
