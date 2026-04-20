@@ -3,7 +3,7 @@ addName.php. Explain the request/response flow: what data format is sent from
 JavaScript, how does PHP receive it, and what format must PHP return for 
 JavaScript to process it?
 Answer: In main.js, fetch() sends the name from JavaScript to addName.php as 
-request data. In your case, the request included a field like name: "Ali Shreif".
+request data. In this case, the request included a field like name: "Amy Adams".
 On the PHP side, that data can be read from the request body, commonly
 through $_POST['name'], or by reading the raw input if needed. After processing
 the request, PHP must return JSON, because the JavaScript is using
@@ -22,4 +22,4 @@ Answer: displayNames() is called after adding a name so the page can immediately
 
 Question 5: After clearNames.php successfully clears the database, the JavaScript calls names.displayNames() to refresh the list. Explain why this refresh is necessary and what would happen if this call were omitted. How does this demonstrate the stateless nature of HTTP requests?
 
-Answer: The refresh after clearNames.php is necessary because clearing the database does not automatically update what the user already sees in the browser. The page still shows the old list until JavaScript requests fresh data and redraws that section. If names.displayNames() were omitted, the database would be empty, but the old names would still appear on the screen until the page was reloaded. This shows the stateless nature of HTTP: each request is independent, and the server does not automatically “push” changes into the browser. The browser must make a new request to get the current state.
+Answer: The refresh after clearNames.php is necessary because clearing the database does not automatically update what the user already sees in the browser. The page still shows the old list until JavaScript requests fresh data and redraws that section. If names.displayNames() were omitted, the database would be empty, but the old names would still appear on the screen until the page is reloaded. This shows the stateless nature of HTTP: each request is independent, and the server does not automatically “push” changes into the browser. The browser must make a new request to get the current state.
